@@ -1,10 +1,15 @@
 #!/bin/bash
+#
+# Copyright (c) Mona Garvert, University of Oxford
+#
+# Generates voxel-wise physio regressors from text file
+#
 
 subj=1
 initials=ts
 
 # Run Pnm
-for session in 0 1 2
+for session in 3
 do
     for run in 1 2 3 4
     do 
@@ -13,7 +18,7 @@ do
 	dir=/home/fs0/mgarvert/scratch/ManyMaps/imagingData/Subj_$subj/session_$session
 	mkdir $dir/run_$run/physio/
 
-	#/opt/fmrib/fsl/bin/fslFixText $dir/physio/Subj_${subj}_ts_session${session}_run$run.txt $dir/run_$run/physio/physio_input.txt
+	/opt/fmrib/fsl/bin/fslFixText $dir/physio/Subj_${subj}_ts_session${session}_run$run.txt $dir/run_$run/physio/physio_input.txt
 	/opt/fmrib/fsl/bin/pnm_stage1 -i $dir/run_$run/physio/physio_input.txt -o $dir/run_$run/physio/physio -s 50 --tr=1.235 --rvt --smoothcard=0.1 --smoothresp=0.1 --resp=2 --cardiac=4 --trigger=3 
 	/opt/fmrib/fsl/bin/popp -i $dir/run_$run/physio/physio_input.txt -o $dir/run_$run/physio/physio -s 50 --tr=1.235 --rvt --smoothcard=0.1 --smoothresp=0.1 --resp=2 --cardiac=4 --trigger=3
        
