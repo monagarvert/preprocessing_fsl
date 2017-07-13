@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) Mona Garvert 2017
+# Copyright (c) Mona Garvert 2017, University of Oxford
 #
 # Moves data from scanner and converts dicom to nifti
 # bet structural image

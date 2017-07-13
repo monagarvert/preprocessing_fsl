@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) Mona Garvert 2017
+# Copyright (c) Mona Garvert 2017, University of Oxford
 #
 
 subj=Subj_1
